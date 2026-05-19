@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-05-19",
+  "pdfQuestionCount": 201,
+  "pdfNumberedAnswerCount": 200,
+  "docxQuestionCount": 810,
+  "docxChapters": [
+    {
+      "id": "chuong-2",
+      "number": 2,
+      "title": "CHƯƠNG 2. HÀNG HOÁ, THỊ TRƯỜNG VÀ VAI TRÒ CỦA CÁC CHỦ THỂ THAM GIA THỊ TRƯỜNG",
+      "count": 203,
+      "answerCount": 203
+    },
+    {
+      "id": "chuong-3",
+      "number": 3,
+      "title": "CHƯƠNG 3. GIÁ TRỊ THẶNG DƯ TRONG NỀN KINH TẾ THỊ TRƯỜNG",
+      "count": 281,
+      "answerCount": 281
+    },
+    {
+      "id": "chuong-4",
+      "number": 4,
+      "title": "CHƯƠNG 4 CẠNH TRANH VÀ ĐỘC QUYỀN TRONG NỀN KINH TẾ THỊ TRƯỜNG",
+      "count": 160,
+      "answerCount": 160
+    },
+    {
+      "id": "chuong-5",
+      "number": 5,
+      "title": "CHƯƠNG 5. KINH TẾ THỊ TRƯỜNG ĐỊNH HƯỚNG XHCN VÀ CÁC QUAN HỆ LỢI ÍCH KINH TẾ Ở VIỆT NAM",
+      "count": 80,
+      "answerCount": 80
+    },
+    {
+      "id": "chuong-6",
+      "number": 6,
+      "title": "CHƯƠNG 6. CÔNG NGHIỆP HÓA, HIỆN ĐẠI HÓA VÀ HỘI NHẬP KINH TẾ QUỐC",
+      "count": 86,
+      "answerCount": 86
+    }
+  ],
+  "issues": []
+}

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ôn thi trắc nghiệm Kinh tế chính trị Mác - Lênin</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">VKU Exam Practice</p>
+        <h1>Ôn thi trắc nghiệm Kinh tế chính trị Mác - Lênin</h1>
+        <p class="hero-subtitle">Chọn bộ đề, làm bài, xem đúng sai ngay và nhận thống kê sau khi hoàn thành.</p>
+      </div>
+      <div class="hero-card">
+        <span class="hero-number" id="totalQuestionCount">—</span>
+        <span class="hero-label">câu hỏi đã nạp</span>
+      </div>
+    </header>
+
+    <main>
+      <section id="setupView" class="panel setup-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Bước 1</p>
+            <h2>Chọn bộ đề ôn tập</h2>
+          </div>
+          <button id="themeToggle" class="ghost-btn" type="button">Đổi giao diện</button>
+        </div>
+
+        <div id="bankCards" class="bank-grid"></div>
+
+        <div class="config-grid">
+          <label class="field">
+            <span>Chọn chương / phạm vi</span>
+            <select id="chapterSelect"></select>
+          </label>
+          <label class="field">
+            <span>Chế độ làm bài</span>
+            <select id="modeSelect">
+              <option value="practice">Luyện tập - hiện đúng/sai ngay</option>
+              <option value="test">Kiểm tra - chấm sau khi nộp</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Số câu</span>
+            <select id="limitSelect">
+              <option value="10">10 câu</option>
+              <option value="20">20 câu</option>
+              <option value="50">50 câu</option>
+              <option value="100">100 câu</option>
+              <option value="all">Tất cả</option>
+            </select>
+          </label>
+          <label class="field checkbox-field">
+            <input id="shuffleToggle" type="checkbox" checked />
+            <span>Xáo trộn câu hỏi</span>
+          </label>
+        </div>
+
+        <div class="action-row">
+          <button id="startBtn" class="primary-btn" type="button">Bắt đầu làm bài</button>
+          <button id="previewBtn" class="secondary-btn" type="button">Xem nhanh cấu trúc đề</button>
+        </div>
+
+        <div id="previewBox" class="preview-box hidden"></div>
+      </section>
+
+      <section id="quizView" class="quiz-layout hidden">
+        <aside class="sidebar panel">
+          <div class="mini-stat">
+            <span>Thời gian</span>
+            <strong id="timerText">00:00</strong>
+          </div>
+          <div class="mini-stat-grid">
+            <div><span>Đã làm</span><strong id="answeredCount">0</strong></div>
+            <div><span>Đúng</span><strong id="correctCount">0</strong></div>
+            <div><span>Sai</span><strong id="wrongCount">0</strong></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-top"><span>Tiến độ</span><strong id="progressText">0%</strong></div>
+            <div class="progress-bar"><div id="progressBar"></div></div>
+          </div>
+          <div class="legend">
+            <span><i class="dot answered"></i>Đã chọn</span>
+            <span><i class="dot correct"></i>Đúng</span>
+            <span><i class="dot wrong"></i>Sai</span>
+          </div>
+          <div id="questionNav" class="question-nav"></div>
+        </aside>
+
+        <section class="question-panel panel">
+          <div class="question-topbar">
+            <button id="backToSetupBtn" class="ghost-btn" type="button">← Chọn lại đề</button>
+            <div id="modeBadge" class="mode-badge">Luyện tập</div>
+          </div>
+          <div class="question-meta">
+            <span id="bankLabel">Bộ đề</span>
+            <span id="questionCounter">Câu 1/10</span>
+          </div>
+          <h2 id="questionText" class="question-text"></h2>
+          <div id="multiHint" class="multi-hint hidden">Câu này có nhiều đáp án đúng. Chọn đủ các đáp án rồi bấm kiểm tra.</div>
+          <div id="optionsList" class="options-list"></div>
+          <div id="feedbackBox" class="feedback-box hidden"></div>
+          <div class="quiz-actions">
+            <button id="prevBtn" class="secondary-btn" type="button">Câu trước</button>
+            <button id="checkBtn" class="primary-btn hidden" type="button">Kiểm tra</button>
+            <button id="nextBtn" class="secondary-btn" type="button">Câu sau</button>
+            <button id="finishBtn" class="danger-btn" type="button">Nộp bài</button>
+          </div>
+        </section>
+      </section>
+
+      <section id="resultView" class="panel result-panel hidden">
+        <div class="result-header">
+          <div>
+            <p class="eyebrow">Kết quả</p>
+            <h2 id="resultTitle">Hoàn thành bài làm</h2>
+            <p id="resultSubtitle"></p>
+          </div>
+          <div class="score-ring"><span id="scorePercent">0%</span></div>
+        </div>
+        <div class="result-grid">
+          <div class="result-card"><span>Tổng số câu</span><strong id="resultTotal">0</strong></div>
+          <div class="result-card"><span>Số câu đúng</span><strong id="resultCorrect">0</strong></div>
+          <div class="result-card"><span>Số câu sai</span><strong id="resultWrong">0</strong></div>
+          <div class="result-card"><span>Chưa làm</span><strong id="resultUnanswered">0</strong></div>
+        </div>
+        <div class="action-row">
+          <button id="retryWrongBtn" class="primary-btn" type="button">Làm lại câu sai</button>
+          <button id="restartBtn" class="secondary-btn" type="button">Về trang chọn đề</button>
+          <button id="downloadResultBtn" class="ghost-btn" type="button">Tải kết quả JSON</button>
+        </div>
+        <h3>Danh sách câu sai / chưa làm</h3>
+        <div id="reviewList" class="review-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
